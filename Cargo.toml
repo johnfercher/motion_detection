@@ -1,0 +1,6 @@
+[package]
+name = "motion_detection"
+version = "0.1.0"
+authors = ["John Fercher <johnathanfercher22@gmail.com>"]
+
+[dependencies]
