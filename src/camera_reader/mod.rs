@@ -27,6 +27,7 @@ impl CameraReader {
             let mut d2 = try!(Mat::new());
             let mut motion = try!(Mat::new());
             let mut mask = try!(Mat::new());
+            let mut pMOG2 = opencv::video::BackgroundSubtractorMOG2::default().unwrap();
 
             if !opened {
                 return Err(String::from("Deu bosta"))
@@ -41,6 +42,8 @@ impl CameraReader {
                 try!(cam.read(&mut frame));
 
                 cvt_color(&frame, &frame, CV_RGB2GRAY, 0);
+
+                // pMOG2.apply();
 
                 absdiff(&prev_frame, &frame, &d1);
                 absdiff(&frame, &current_frame, &d2);
